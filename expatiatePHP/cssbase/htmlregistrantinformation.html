@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+文件名： htmlregistrantinformation.html
+字符编码：UTF-8  
+版权所有:Copyright (C) 2015 Zhao Qun Studio Co.,Ltd
+网站地址:http://zqstudio.ecip.net
+作者:Better Feng
+邮箱:2360680821@qq.com
+-->
+<html>
+    <head>
+        <title>LAMP学员基本信息</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <table align="center" width="500" border="0" cellpadding="2" cellspacting="0">
+            <caption align="center"><h2>LAMP学员基本信息</h2></caption>
+            <form action="server.php" method="post">
+                <tr>
+                    <td>姓名</td>
+                    <td><input type="text" name="username" size="20"></td>
+                </tr>
+                <tr>
+                    <td>性别：</td>
+                    <td><input type="radio" name="sex" value="1" checked>男 
+                        <input type="radio" name="sex" value="2" checked>女
+                        <input type="radio" name="sex" value="0" checked>保密
+                    </td>
+                </tr>
+                <tr>
+                    <td>学历:</td>
+                    <td>
+                        <select name="edu">
+                            <option>..请选择</option>
+                            <option value="1" >高中</option>
+                            <option value="1" >大专</option>
+                            <option value="1" >本科</option>
+                            <option value="1" >研究生</option>
+                            <option value="1" >其他</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>选修课程：</td>
+                    <td>
+                        <input type="checkbox" name="couse[]" value="4">Linux
+                        <input type="checkbox" name="couse[]" value="5">Apache
+                        <input type="checkbox" name="couse[]" value="6">MySQL
+                        <input type="checkbox" name="couse[]" value="7">PHP
+                    </td>
+                </tr>
+                <tr>
+                    <td>自我评价：</td>
+                    <td>
+                        <textarea name="eval" rows="=4" cols="40"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" name="submit" value="提交">
+                        <input type="reset" name="reset" value="重置">
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </body>
+</html>
