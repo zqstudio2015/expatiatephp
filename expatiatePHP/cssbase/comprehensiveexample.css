@@ -1,0 +1,72 @@
+/*
+文件名： comprehensiveexample.css
+字符编码：UTF-8  
+版权所有:Copyright (C) 2015 Zhao Qun Studio Co.,Ltd
+网站地址:http://zqstudio.ecip.net
+作者:Better Feng
+邮箱:2360680821@qq.com
+*/
+
+body {
+    background:white;
+    font:12px Arial,微软雅黑;
+}
+a:link, a:visited {
+    text-decoration: none;
+    color: #888;
+}
+
+#wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    text-align: left;
+}
+
+.tit {
+    width: 100%;
+    height: 24px;
+    background: url(tittb.gif);
+}
+
+.tit h3 {
+    margin: 0px;
+    padding: 0px;
+    line-height: 24px;
+    font-size: 12px;
+    text-indent: 30px;
+    background: url(tittb.gif) no-repeat 3% 50%;
+}
+
+.list {
+    width: 298px !important;
+    width: 300px;
+    float: left;
+    border: 1px solid #D8D8D8;
+    border-top: 0px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+ul li {
+    float: left;
+    line-height: 20px;
+    width: 45%;
+    margin: 0px 5px;
+    background: url(dideboottom.git) repeat-x 0 bottom;
+}
+
+ul a {
+    padding-left: 12px;
+    background: url(bullte.gif) no-repeat 0 50%;
+}
+
+ul a:hover {
+    text-decoration: underline;
+    color: #ff0000;
+}
+
