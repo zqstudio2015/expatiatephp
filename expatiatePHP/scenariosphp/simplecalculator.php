@@ -38,6 +38,7 @@
 
         <form action="" method="post">
             <table border="1" align="center" width="400">
+                <!--<form action="" method="post">-->
                 <caption><h2>简单计算器</h2></caption>
                 <tr>
                     <td><input type="text" size="10" name="num1" value="<?php
@@ -74,7 +75,8 @@
                         ?>"></td>
                     <td><input type="submit" name="sub" value="计算"></td>
                 </tr>
-
+                <!--</form>-->
+                
                 <?php
                 if (isset($_POST["sub"]) && !empty($_POST["sub"])) {
                     $sum = 0;
@@ -99,7 +101,8 @@
                     echo "计算结果：$num1 $oper $num2 = $sum";
                     echo "</td></tr>";
                 }
-                ?>
+                ?>                     
+
             </table>
         </form>
 
