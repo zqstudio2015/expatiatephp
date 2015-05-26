@@ -13,7 +13,7 @@
         <title>文章发布</title>
     </head>
     <body>
-        <form>
+        <form method="post" action="articlepublishedviewthread.php" target="_blank">
             <h2 align="center">发表文章演示</h2>
             <div style="width: 200;float: left">
                 <h5>选项</h5>

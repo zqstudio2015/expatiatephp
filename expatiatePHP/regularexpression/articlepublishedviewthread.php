@@ -16,6 +16,7 @@
         <?php
         require 'articlepublishedacticle_class.php';
         $acticle=new acticle($_POST["subject"], $_POST["message"], $_POST["parse"]);
+        echo $acticle->getsubject();
         echo "<hr>";
         echo $acticle->getMessage();
         ?>
