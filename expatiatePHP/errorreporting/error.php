@@ -18,6 +18,7 @@
         ini_set('display_errors', 1);
         //设置error_reporting错误级别
         error_reporting(E_ALL);
+//        error_reporting(E_ERROR);
         gettype($var);
         gettype();
         get_type();
