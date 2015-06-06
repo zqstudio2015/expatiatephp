@@ -86,4 +86,9 @@ function getFileSize($bytes){
     return $return." ".$suffix;
 }
 getFilePro("linuxFileType.php");
+
+$filePro = stat("linuxFileType.php");
+print_r("<pre>");
+print_r(array_slice($filePro, 13));
+print_r($filePro);
 ?>
