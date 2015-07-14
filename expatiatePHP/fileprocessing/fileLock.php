@@ -31,9 +31,9 @@
 
         function writeMessage($filename, $message) {
             $fp = fopen($filename, "a") or die("文件打开失败");
-            if (flock($fp, LOCK_EX)) {
+            if (flock($fp, LOCK_EX+LOCK_NB)) {
                 fwrite($fp, $message);
-                flock($fp, LOCK_UN);
+                flock($fp, LOCK_UN+LOCK_NB);
             } else {
                 echo "不能锁定文件！";
             }
