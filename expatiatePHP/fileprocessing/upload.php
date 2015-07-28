@@ -1,0 +1,48 @@
+<?php
+
+/*
+ * 文件名： upload.php
+ * 字符编码：UTF-8  
+ * 版权所有: Copyright©2014-2015 Zhao Qun Studio Co.,Ltd
+ * 网站地址:http://zqstudio.ecip.net
+ * 作者:Better Feng
+ * 邮箱:2360680821@qq.com
+ */
+if($_FILES['myfile']['error'] > 0){
+    echo '上传错误:';
+    switch ($_FILES['myfile']['error']){
+        case 1:
+            echo '上传文件大小超出PHP配置文件中的约定值：upload_max_filesize';
+            break;
+        case 2:
+            echo '上传文件大小超出表单中的约定值：MAX_FILE_SIZE';
+            break;
+        case 3:
+            echo '文件只被部分上载';
+            break;
+        case 4:
+            echo '没有上传任何文件';
+            break;
+    }
+    exit;
+}
+list($maintype, $subtype)=explode("/", $_FILES['myfile']['type']);
+if($maintype == "text"){
+    echo '问题：不能上传文本文件。';
+    exit;
+}
+
+$upfile = './uploads/'.time().$_FILES['myfile']['name'];
+if(is_uploaded_file($_FILES['myfile']['tmp_name'])){
+    if(!move_uploaded_file($_FILES['myfile']['tmp_name'], $upfile)){
+        echo '问题：不能将文件移动到指定目录。';
+        exit;
+    } 
+} else {
+        echo '问题：上传文件不是一个合法文件：';
+        echo $_FILES['myfile']['name'];
+        exit;
+}
+echo '文件'.$upfile.'上传成功，大小为'.$_FILES['myfile']['size'].'!<br>';
+?>
+
