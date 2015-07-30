@@ -38,7 +38,7 @@ if ($fileCount > 0) {
             exit;
         }
 
-        $upfile = './uploads/' . date('YmdHis', time()) . $_FILES['myfile']['name'][$i];
+        $upfile = './uploads/' . date('Ymd', time()) . $_FILES['myfile']['name'][$i];
         if (is_uploaded_file($_FILES['myfile']['tmp_name'][$i])) {
             if (!move_uploaded_file($_FILES['myfile']['tmp_name'][$i], $upfile)) {
                 echo '问题：不能将文件移动到指定目录。';

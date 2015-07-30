@@ -16,11 +16,9 @@
         <?php
 //        echo date('YmdHis', time())
         ?>
-        <form action="mul_upload.php" method="post" enctype="multipart/form-data">
+        <form action="mul_upload1.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="MAX_FILE_SIZE" value="30000000">
-            选择文件1:<input type="file" name="myfile[]">
-            选择文件2:<input type="file" name="myfile[]">
-            选择文件3:<input type="file" name="myfile[]">
+            选择文件:<input type="file" multiple="multiple" name="myfile[]">
             <input type="submit" value="上传文件">
             
         </form>

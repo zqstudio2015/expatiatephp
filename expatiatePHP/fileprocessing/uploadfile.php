@@ -17,7 +17,7 @@
         // put your code here
         ?>
         <form action="upload.php" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000000">
             选择文件:<input type="file" name="myfile">
             <input type="submit" value="上传文件">
         </form>
