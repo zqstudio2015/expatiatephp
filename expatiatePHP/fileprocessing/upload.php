@@ -8,6 +8,8 @@
  * 作者:Better Feng
  * 邮箱:2360680821@qq.com
  */
+//设置编码为UTF-8，以避免中文乱码
+header('Content-Type:text/html;charset=utf-8');
 if($_FILES['myfile']['error'] > 0){
     echo '上传错误:';
     switch ($_FILES['myfile']['error']){
