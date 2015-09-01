@@ -11,7 +11,7 @@
 
 /**
  * Description of Filec_class
- *
+ * 是文件类，继承FileDir类，扩展了一些和文件相关处理的成员方法
  * @author Better
  */
 class Filec extends FileDir {
