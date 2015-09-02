@@ -32,7 +32,7 @@ class Dirc extends FileDir {
      * 如果目录删除成功返回True，失败则返回False
      */
     public function copyFile($dFile) {
-        $this->copyFile($this->name, $dFile);
+        $this->copyDir($this->name, $dFile);
         if(file_exists($dFile)){
             return true;
         } else {

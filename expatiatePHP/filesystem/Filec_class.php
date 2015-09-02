@@ -78,7 +78,7 @@ class Filec extends FileDir {
      */
     private function getMIMEType($path){
         $fileMimeType = "unkown";
-        switch($path["wxtension"]){
+        switch($path["extension"]){
             case "html":
             case "htm":
                 $fileMimeType = "text/html";
