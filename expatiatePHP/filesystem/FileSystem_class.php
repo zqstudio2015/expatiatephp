@@ -72,6 +72,17 @@ class FileSystem {
         return $str;
     }
     
+    //访问该方法获取所操作目录所在的磁盘空间使用信息
+    public function getDiskSpace(){
+        $totalSpace = round(dirk_total_space($this->prevpath)/pow(1024, 2), 2);
+        $freeSpace = round(dirk_free_space($this->prevpath)/pow(1024, 2), 2);
+        $usedSpace = $totalSpace - $freeSpace;
+        $str = "所在分区的总大小：<b>" . $totalSpace . "</b>MB";
+        $str .= "已用：<b>" . $usedSpace . "</b>MB";
+        $str .= "可用：<b>" . $freeSpace . "</b>MB";
+        return $str;
+    }
+    
     //访问该方法获取文件系统的操作菜单
     public function getMenu(){
         $menu = '<a href = "contral.php?action=upload & dirname=' . $this->path . '">上传文件</a>||';
