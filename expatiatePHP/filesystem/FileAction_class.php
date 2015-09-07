@@ -43,53 +43,62 @@ class FileAction {
      */
 
     function getForm($submitPage) {
-        echo '<form action = "' . $submitPage . '" method = "post" enctype = "multipart/form-data">';
+        echo '<form action="' . $submitPage . '"method="post" enctype="multipart/form-data">';
         if (isset($_GET["filename"])) {
             echo '<input type="hidden" name = "filename" value = "' . $this->file->getName() . '">';
         }
         if (isset($_GET["dirname"])) {
             echo '<input type = "hidden" name = "dirname" value = "' . $_GET["dirname"] . '">';
         }
-        switch ($this->action) {
+        switch($this->action) {
             case "copy":
-                echo '<input type = "hidden" name = "action" value = "copy">';
+                echo '<input type="hidden" name="action" value="copy">';
                 echo '将文件<b>' . $this->file->getName() . '</b>复制到';
-                echo '<input type = "text" name = "tofile">';
-                echo '<input type = "submit" value = "复制">';
+                echo '<input type="text" name="tofile">';
+                echo '<input type="submit" value="复制">';
                 break;
             case "rename":
-                echo '<input type = "hidden" name = "action" value = "raname">';
+                echo '<input type="hidden" name="action" value="raname">';
                 echo '将文件<b>' . $this->file->getName() . '</b>移动/重命名为';
-                echo '<input type = "text" name = "tofile">';
-                echo '<input type = "submit" value = "移动/重命名">';
+                echo '<input type="text" name="tofile">';
+                echo '<input type="submit" value="移动/重命名">';
                 break;
             case "delete":
-                echo '<input type = "hidden" name = "action" value = "delete">';
+                echo '<input type="hidden" name="action" value="delete">';
                 echo '将文件<b>' . $this->file->getName() . '</b>删除';
-                echo '<input type = "submit" value = "删除">';
-                echo '<a href = "' . $submitPage . '">取消</a>';
+                echo '<input type="submit" value="删除">';
+                echo '<a href="' . $submitPage . '">取消</a>';
                 break;
             case "edit":
-                echo '<input type = "hidden" name = "action" value = "edit">';
+                echo '<input type="hidden" name="action" value = "edit">';
                 echo '<center><h3>编辑' . $this->file->getName() . '</h3>';
-                echo '<textarea rows = "25" cols = "100" name = "content">';
+                echo '<textarea rows="25" cols="100" name="content">';
                 echo $this->file->getText();
                 echo '</textarea></br>';
-                echo '<input type = "submit" value = "修改文件">';
-                echo '<input type = "reset" value = "重置">';
-                echo '<a href = "' . $submitPage . '"取消</a></center>';
+                echo '<input type="submit" value="修改文件">';
+                echo '<input type="reset" value="重置">';
+                echo '<a href="' . $submitPage . '"取消</a></center>';
+                break;
+            case "addfile":
+                echo '<input type="hidden" name="action" value = "addfile">';
+                echo '<center>文件名:<input type="text" size=30 name="filename">';
+                echo '<br><textarea rows="25" cols="100" name="content">';
+                echo '</textarea></br>';
+                echo '<input type="submit" value="创建文件">';
+                echo '<input type="reset" value="重置">';
+                echo '<a href="' . $submitPage . '"取消</a></center>';
                 break;
             case "adddir":
-                echo '<input type = "hidden" name = "action" value = "adddir">';
-                echo '目录名：<input type = "text" size = "30" name = "newdirname">';
-                echo '<input type = "submit" value = "创建目录">';
-                echo '<a href = "' . $submitPage . '">取消</a>';
+                echo '<input type="hidden" name="action" value="adddir">';
+                echo '目录名：<input type="text" size="30" name="newdirname">';
+                echo '<input type="submit" value="创建目录">';
+                echo '<a href="' . $submitPage . '">取消</a>';
                 break;
             case "upload":
-                echo '<input type = "hidden" name = "action" value = "upload">';
-                echo '目录名：<input type = "file" name = "upfile">';
-                echo '<input type = "submit" value = "上传">';
-                echo '<a href = "' . $submitPage . '">取消</a>';
+                echo '<input type="hidden" name="action" value="upload">';
+                echo '上传文件：<input type="file" name="upfile">';
+                echo '<input type="submit" value="上传">';
+                echo '<a href= "' . $submitPage . '">取消</a>';
                 break;
         }
         echo '</form>';

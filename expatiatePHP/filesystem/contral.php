@@ -19,7 +19,7 @@ $fileaction = new FileAction($_GET["filename"], $_GET["action"]);
 $fileaction->getFileInfo();
 
 if(isset($_GET["dirname"])){
-    $fileaction->getForm("filesystem.php?dirname=" . $_GET["action"]);
+    $fileaction->getForm("filesystem.php?dirname=" . $_GET["dirname"]);
 } else {
     $fileaction->getForm("filesystem.php");
 }

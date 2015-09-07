@@ -59,7 +59,7 @@ class FileUpload {
     /*为成员属性列表赋初值
      * 参数options：提供一个数组，数组下表为成员属性名称，元素值即为属性设置的值
      */
-    private function setOption($options = []){
+    private function setOptions($options = array()){
         foreach ($options as $key => $val){
             if(!in_array($key, array('filePathi', 'fileField', 'originName', 'allowType', 'maxSize', 'isUserDefName', 'userDefName', 'isRandName', 'randName'))){
                 continue;
