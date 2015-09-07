@@ -127,23 +127,23 @@ class FileSystem {
     public function operate($cpage, $file){
         list($maintype, $subtype) = explode("/", $file->getType());
         $query = 'filename=' . $file->getName() . '&dirname=' . $this->path;
-        $operstr = '<a href="' . $cpage . '?action=copy & ' . $query.'">复制</a>';
-        $operstr .= '/<a href="' . $cpage . '?action=rename & ' . $query.'">重命名</a>';
-        $operstr .= '/<a href = "' . $cpage . '?action=delete & ' . $query.'">删除</a>';
+        $operstr = '<a href="' . $cpage . '?action=copy&' . $query.'">复制</a>';
+        $operstr .= '/<a href="' . $cpage . '?action=rename& ' . $query.'">重命名</a>';
+        $operstr .= '/<a href="' . $cpage . '?action=delete&' . $query.'">删除</a>';
         switch($maintype){
             case 'dirctory':
-                $operstr .= '/<a href = "filesystem.php?dirname=' . $file->getName() . '">进入</a>';
+                $operstr .= '/<a href="filesystem.php?dirname=' . $file->getName() . '">进入</a>';
                 break;
             case 'text':
-                $operstr .= '/<a href = "' . $cpage . '?action=edit & ' . $query.'">编辑</a>';
+                $operstr .= '/<a href="' . $cpage . '?action=edit&' . $query.'">编辑</a>';
                 $operstr .= '/<a href = "download.php?filename=' . $file->getName() . '">下载</a>';
                 break;
             case 'image':
-                $operstr .= '/<a href = "' . $file->getName() . '">预览</a>';
-                $operstr .= '/<a href = "download.php?filename=' . $file->getName() . '">下载</a>';
+                $operstr .= '/<a href="' . $file->getName() . '">预览</a>';
+                $operstr .= '/<a href="download.php?filename=' . $file->getName() . '">下载</a>';
                 break;
             default:
-                $operstr .= '/<a href = "download.php?filename=' . $file->getName() . '">下载</a>';
+                $operstr .= '/<a href="download.php?filename=' . $file->getName() . '">下载</a>';
         }
         return $operstr;
     }
