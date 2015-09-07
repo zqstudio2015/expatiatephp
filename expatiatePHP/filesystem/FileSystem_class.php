@@ -85,18 +85,19 @@ class FileSystem {
     
     //访问该方法获取文件系统的操作菜单
     public function getMenu(){
-        $menu = '<a href = "contral.php?action=upload & dirname=' . $this->path . '">上传文件</a>||';
-        $menu .= '<a href = "contral.php?action=adddir & dirname=' . $this->path . '">新建文件</a>||';
-        $menu .= '<a href = "contral.php?action=addfile & dirname=' . $this->path . '">创建文件</a>||';
-        $menu .= '<a href = "filesystem.php?dirname=' .$this->getPrevPath() . '">上级目录</a>||';
-        $menu .= '<a href = "filesystem.php?dirname=' .$this->getPagePath() . '">开始目录</a>||';
-        $menu .= '<a href = "filesystem.php?dirname=' .$this->getServerPath() . '">文档根目录</a>||';
+        $menu = '<a href="contral.php?action=upload & dirname=' . $this->path . '">上传文件</a>||';
+        $menu .= '<a href="contral.php?action=adddir & dirname=' . $this->path . '">新建文件</a>||';
+        $menu .= '<a href="contral.php?action=addfile & dirname=' . $this->path . '">创建文件</a>||';
+        $menu .= '<a href="filesystem.php?dirname=' .$this->getPrevPath() . '">上级目录</a>||';
+        $menu .= '<a href="filesystem.php?dirname=' .$this->getPagePath() . '">开始目录</a>||';
+        $menu .= '<a href="filesystem.php?dirname=' .$this->getServerPath() . '">文档根目录</a>';
+        echo $menu;
     }
     
     //访问该方法获取文件系统所操作目录下的文件目录和目录对象立标，以表格形式输出
     public function fileList(){
-        echo '<table border = "0" cellspacing = "1" cellpadding = "1" width = "100%">';
-        echo '<tr bgcolor = "#b0c4de">';
+        echo '<table border="0" cellspacing="1" cellpadding="1" width="100%">';
+        echo '<tr bgcolor="#b0c4de">';
         echo '<th>类型</th><th>名称</th><th>大小</th><th>修改时间</th><th>操作</th>';
         echo '</tr>';
         if(is_array($this->files)){
@@ -107,7 +108,7 @@ class FileSystem {
                 } else {
                     $trcolor = "#dddddd";
                 }
-                echo '<tr style = "font-size:14px;" bgcolor = ' . $trcolor . '>';
+                echo '<tr style="font-size:14px;" bgcolo =' . $trcolor . '>';
                 echo '<td>' . $file->getType() . '</td>';
                 echo '<td>' . $file->getBaseName() . '</td>';
                 echo '<td>' . $file->getSize() . '</td>';
@@ -126,8 +127,8 @@ class FileSystem {
     public function operate($cpage, $file){
         list($maintype, $subtype) = explode("/", $file->getType());
         $query = 'filename=' . $file->getName() . '&dirname=' . $this->path;
-        $operstr = '<a href = "' . $cpage . '?action=copy & ' . $query.'">复制</a>';
-        $operstr .= '/<a href = "' . $cpage . '?action=rename & ' . $query.'">重命名</a>';
+        $operstr = '<a href="' . $cpage . '?action=copy & ' . $query.'">复制</a>';
+        $operstr .= '/<a href="' . $cpage . '?action=rename & ' . $query.'">重命名</a>';
         $operstr .= '/<a href = "' . $cpage . '?action=delete & ' . $query.'">删除</a>';
         switch($maintype){
             case 'dirctory':

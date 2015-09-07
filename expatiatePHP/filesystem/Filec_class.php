@@ -24,8 +24,8 @@ class Filec extends FileDir {
             touch($filename) or die("文件<b>" . $filename . "</b>创建失败！");
         }
         $this->name = $filename;
-        $this->type = getMIMEType(pathinfo($filename));
-        $this->size = toSize(filesize($filename));
+        $this->type = $this->getMIMEType(pathinfo($filename));
+        $this->size = $this->toSize(filesize($filename));
         parent::__construct($filename);
     }
 

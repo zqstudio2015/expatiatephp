@@ -17,7 +17,7 @@
         <?php
 
         function __autoload($className) {
-            include $className . "_class.php";
+            include $className."_class.php";
         }
 
         if (isset($_POST["action"])) {

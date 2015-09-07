@@ -43,7 +43,7 @@ class FileAction {
      */
 
     function getForm($submitPage) {
-        echo '<form action = "' . $submitPage . '" method = "post" enctype = "mulipart/form-data">';
+        echo '<form action = "' . $submitPage . '" method = "post" enctype = "multipart/form-data">';
         if (isset($_GET["filename"])) {
             echo '<input type="hidden" name = "filename" value = "' . $this->file->getName() . '">';
         }
