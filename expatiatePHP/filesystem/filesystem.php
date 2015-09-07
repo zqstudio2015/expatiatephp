@@ -30,14 +30,16 @@
         } else {
             $fs = new FileSystem();
         }
-        echo '<hr>';
+        echo "<hr>";
         $fs->getMenu();
-        echo '<hr>';
+        echo "<hr>";
         $fs->fileList();
         echo '<br><font size=2 color="#005500">';
         echo $fs->getDirInfo();
         echo $fs->getDiskSpace();
         echo "</font>";
         ?>
+    <hr>
+    <center>作者：BetterFeng 版本1.0 编写事件：2015－09－07</center>
     </body>
 </html>
