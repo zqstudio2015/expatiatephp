@@ -8,7 +8,7 @@
  * 作者:Better Feng
  * 邮箱:2360680821@qq.com
  */
-
+header("Content-Type:text/html;charset=utf-8");
 function __autoload($className){
     include $className . "_class.php";
 }

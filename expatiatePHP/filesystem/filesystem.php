@@ -40,6 +40,6 @@
         echo "</font>";
         ?>
     <hr>
-    <center>作者：BetterFeng 版本1.0 编写事件：2015－09－07</center>
+    <center>作者：BetterFeng 版本1.0 编写时间：2015－09－07</center>
     </body>
 </html>

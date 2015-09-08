@@ -66,20 +66,20 @@ class FileSystem {
     
     //访问该方法获取所操作目录下的文件和目录对象的个数
     public function getDirInfo(){
-        $str = "本目录下共有文件<b>" . ($this->dirnum + $this->filenum) . "</b>个";
-        $str .= "其中目录<b>" . $this->dirnum . "</b>个";
-        $str .= "文件<b>" . $this->filenum . "</b>个。";
+        $str = "本目录下共有文件<b>" . ($this->dirnum + $this->filenum) . "</b>个，";
+        $str .= "其中目录<b>" . $this->dirnum . "</b>个，";
+        $str .= "文件<b>" . $this->filenum . "</b>个。<br>";
         return $str;
     }
     
     //访问该方法获取所操作目录所在的磁盘空间使用信息
     public function getDiskSpace(){
-        $totalSpace = round(dirk_total_space($this->prevpath)/pow(1024, 2), 2);
-        $freeSpace = round(dirk_free_space($this->prevpath)/pow(1024, 2), 2);
+        $totalSpace = round(disk_total_space($this->prevpath)/pow(1024, 2), 2);
+        $freeSpace = round(disk_free_space($this->prevpath)/pow(1024, 2), 2);
         $usedSpace = $totalSpace - $freeSpace;
-        $str = "所在分区的总大小：<b>" . $totalSpace . "</b>MB";
-        $str .= "已用：<b>" . $usedSpace . "</b>MB";
-        $str .= "可用：<b>" . $freeSpace . "</b>MB";
+        $str = "所在分区的总大小：<b>" . $totalSpace . "</b>MB，";
+        $str .= "已用：<b>" . $usedSpace . "</b>MB，";
+        $str .= "可用：<b>" . $freeSpace . "</b>MB。";
         return $str;
     }
     
