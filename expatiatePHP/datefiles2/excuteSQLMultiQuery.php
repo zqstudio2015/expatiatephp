@@ -14,7 +14,7 @@ if(mysqli_connect_error()){
     exit();
 }
 
-$query = "SET NAMES GB2312;";
+$query = "SET NAMES utf8;";
 $query .= "SELECT CURRENT_USER();";
 $query .= "select bookId,bookName,bookAuthor,publishingHouse from books";
 
@@ -44,7 +44,7 @@ if ($mysqli->multi_query($query)){
             $result->close();
         }
         if($mysqli->more_results()){
-            echo "------------------------------<br>";
+            echo "------------下一条SQL语句------------------<br>";
         }
     }
     $mysqli->close();
