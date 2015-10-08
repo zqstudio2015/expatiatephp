@@ -22,7 +22,7 @@ class MyDB {
      * 
      */
     public function __construct($configFile = "password.inc.php", $showError = TRUE) {
-        require_once ('$configFile');
+        require_once ($configFile);
         $this->mysqli = new mysqli($dbhost, $dbuser, $dbpasswd, $dbname);
         if(mysqli_connect_errno()){
             $this->printError("连接失败，原因为：".mysqli_connect_error());
