@@ -13,6 +13,7 @@ try{
 //    echo '数据库连接成功！';
 } catch (Exception $ex) {
     echo '数据库连接失败：' .$ex->getMessage();
+    exit;
 }
 
 $query = "INSERT INTO contactInfo(name,address,phone) VALUES(?,?,?);";

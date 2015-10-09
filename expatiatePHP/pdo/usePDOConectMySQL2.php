@@ -14,6 +14,7 @@ try{
     echo '数据库连接成功！';
 } catch (Exception $ex) {
     echo '数据库连接失败：' .$ex->getMessage();
+    exit;
 }
 //$db->setAttribute(PDO::ATTR_ORACLE_NULLS, TRUE);
 //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);

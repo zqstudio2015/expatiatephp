@@ -14,6 +14,7 @@ try{
     echo '数据库连接成功！';
 } catch (Exception $ex) {
     echo '数据库连接失败：' .$ex->getMessage();
+    exit;
 }
 $query = "update contactInfo set departmentId='D02' where name='陈某某'";
 $affected = $db->exec($query);
