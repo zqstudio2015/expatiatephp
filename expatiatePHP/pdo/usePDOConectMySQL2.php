@@ -15,6 +15,9 @@ try{
 } catch (Exception $ex) {
     echo '数据库连接失败：' .$ex->getMessage();
 }
+//$db->setAttribute(PDO::ATTR_ORACLE_NULLS, TRUE);
+//$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+//$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 echo "<br> PDO是否关闭自动提交功能：" .$db->getAttribute(PDO::ATTR_AUTOCOMMIT);
 echo "<br> 当前PDO的错误处理的模式：" .$db->getAttribute(PDO::ATTR_ERRMODE);
 echo "<br> 表字段字符的大小写转换：" .$db->getAttribute(PDO::ATTR_CASE);
