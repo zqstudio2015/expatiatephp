@@ -20,8 +20,11 @@
         }
         
         echo '<h1>环境变量变量</h1><br>';
+//        var_dump($_ENV);
         foreach($_ENV as $key => $value){
             echo '$_ENV['.$key.'] = '.$value.'<br>';
+//            echo $key.'='.$value.'<br>'; 
+    
         }
         ?>
     </body>
