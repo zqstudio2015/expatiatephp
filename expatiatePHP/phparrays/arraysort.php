@@ -17,19 +17,48 @@
         print_r("<pre>");
         echo "<h3>简单数组排序</h3>";
         $arraysort1 = array(5, 8, 7, 9, 2);
-        sort($arraysort1);
-        print_r($arraysort1);
+        if (sort($arraysort1)) {
+            echo '输出sort排序后的数组:<br>';
+            print_r($arraysort1);
+        }
         print_r("<br>");
-        rsort($arraysort1);
-        print_r($arraysort1);
+
+        if (rsort($arraysort1)) {
+            echo '输出rsort排序后的数组:<br>';
+            print_r($arraysort1);
+        }        
+        print_r("<br>");
+        
+        function my_usort($a, $b) {
+            if ($a == $b)
+                return 0;
+            return ($a > $b) ? -1 : 1;
+        }
+
+        $arr = array( "a" => "Peter", "b" => "glenn", "c" => "Cleveland", "d" => "peter", "e" => "cleveland", "f" => "Glenn");
+        if(usort($arr, "my_usort")){
+            echo '输出usort排序后的数组:<br>';
+            print_r($arr);
+        }
+        print_r("<br>");
+
+        
+
 
         echo "<h3>自然数组排序</h3>";
         $arraysort2 = array("file1.txt", "file12.txt", "file2.txt", "File2.txt", "File12.txt", "file.txt");
-        natsort($arraysort2);
-        print_r($arraysort2);
+
+        if (natsort($arraysort2)) {
+            echo '输出natsort排序后的数组:<br>';
+            print_r($arraysort2);
+        }
+
         print_r("<br>");
-        natcasesort($arraysort2);
-        print_r($arraysort2);
+        if (natcasesort($arraysort2)) {
+            echo '输出natsort排序后的数组:<br>';
+            print_r($arraysort2);
+        }
+
         print_r("<br>");
 
         print_r("<h3>多维数组排序</h3>");
@@ -47,7 +76,6 @@
         }
         array_multisort($ratings, $softs, $multiarray);
         print_r($multiarray);
-        
         ?>
     </body>
 </html>

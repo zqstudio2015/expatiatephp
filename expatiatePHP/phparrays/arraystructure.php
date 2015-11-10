@@ -19,9 +19,11 @@
         $lamp = array("Web");
         echo array_push($lamp, "Linux")."<br>";
         print_r($lamp);
-        echo array_push($lamp, "Apache", "MySQL", "PHP", "PHP")."<br>";
+        echo array_push($lamp, "Apache", "MySQL", "PHP1", "PHP2")."<br>";
         print_r($lamp);
+        echo '<br>';
         echo array_pop($lamp);
+         echo '<br>';
         print_r($lamp);        
         echo array_shift($lamp);
         print_r($lamp);
