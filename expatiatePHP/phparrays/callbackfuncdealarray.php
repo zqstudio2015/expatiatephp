@@ -44,7 +44,7 @@
         //array_map()比array_walk灵活，作用到给定数组的元素。
         echo "<h3>array_map()比array_walk灵活，作用到给定数组的元素</h3>";
         function callbackOfElement($values){
-            if($values === MySQL){
+            if($values === "MySQL"){
                 return "Oracle";
             }
             return $values;
@@ -59,8 +59,8 @@
             }
             return "different";
         }
-        $a1 = array("Linux", "Apache", "MySQL", "PHP");
-        $a2 = array("Unix", "Apache", "Oracle", "PHP");
+        $a1 = array( "a" => "Linux", "b" => "Apache", "c" => "MySQL", "d" => "PHP");
+        $a2 = array( "e" => "Unix", "f" => "Apache", "g" => "Oracle", "h" => "PHP");
         print_r(array_map("callbackOfElement1", $a1, $a2));
         
         $a3 = array("Linux", "Apache");
