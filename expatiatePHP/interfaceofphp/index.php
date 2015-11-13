@@ -16,7 +16,8 @@
         <?php
 
         function __autoload($classname) {
-            include("class_" .($classname). ".php");
+//            echo $classname;
+            include("class_" . ($classname) . ".php");
         }
         ?>
     <center>
@@ -28,39 +29,40 @@
     </center>
 
     <?php
-    switch ($_REQUEST["action"]) {
-        case 1:
-            $form = new form("矩形", $_REQUEST, "index.php");
-            echo $form;
-            break;
-        case 2:
-            $form = new form("三角形", $_REQUEST, "index.php", "post", "_blank");
-            echo $form;
-            break;
-        case 3:
-            $form = new form("圆形", $_REQUEST);
-            echo $form;
-            break;
-        default:
-            echo "请选择一个形状<br>";
-    }
-    
-    if(isset($_REQUEST["act"])){
-        switch ($_REQUEST["act"]){
+    if(!empty($_REQUEST["action"])) {
+        switch ($_REQUEST["action"]) {
             case 1:
-                $shape = new rect($_REQUEST);
+                $form = new form("矩形", $_REQUEST, "index.php");
+                echo $form;
                 break;
             case 2:
-                $shape = new triangle($_REQUEST);
+                $form = new form("三角形", $_REQUEST, "index.php", "post", "_blank");
+                echo $form;
                 break;
             case 3:
-                $shape = new circle($_REQUEST);
+                $form = new form("圆形", $_REQUEST);
+                echo $form;
                 break;
+            default:
+                echo "请选择一个形状<br>";
         }
-        echo "面积为：".$shape->area().'<br>';
-        echo "周长为：".$shape->perimeter().'<br>';
+
+        if (isset($_REQUEST["act"])) {
+            switch ($_REQUEST["act"]) {
+                case 1:
+                    $shape = new rect($_REQUEST);
+                    break;
+                case 2:
+                    $shape = new triangle($_REQUEST);
+                    break;
+                case 3:
+                    $shape = new circle($_REQUEST);
+                    break;
+            }
+            echo "面积为：" . $shape->area() . '<br>';
+            echo "周长为：" . $shape->perimeter() . '<br>';
+        }
     }
-    
     ?>
 </body>
 </html>
