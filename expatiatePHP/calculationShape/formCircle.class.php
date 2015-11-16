@@ -11,9 +11,7 @@
  *
  * @author BetterFeng
  */
-class formCircle {
-
-    private $shapeName;
+class formCircle extends formCreate{
 
     function __construct() {
         $this->shapeName = "circle";
@@ -27,5 +25,6 @@ class formCircle {
         $form .= '</form>';
         return $form;
     }
+    
 
 }

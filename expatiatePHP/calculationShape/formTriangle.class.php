@@ -11,9 +11,7 @@
  *
  * @author BetterFeng
  */
-class formTriangle {
-
-    private $shapeName;
+class formTriangle extends formCreate {
 
     function __construct() {
         $this->shapeName = "triangle";

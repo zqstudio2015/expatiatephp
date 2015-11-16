@@ -11,9 +11,7 @@
  *
  * @author BetterFeng
  */
-class formRect {
-
-    private $shapeName;
+class formRect extends formCreate {
 
     function __construct() {
         $this->shapeName = "rect";
@@ -28,5 +26,4 @@ class formRect {
         $form .= '</form>';
         return $form;
     }
-
 }
