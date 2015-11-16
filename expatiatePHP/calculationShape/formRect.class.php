@@ -17,7 +17,7 @@ class formRect extends formCreate {
         $this->shapeName = "rect";
     }
 
-    function __toString() {
+    function createForm() {
         $form = '<form action="index.php?action=' . $this->shapeName . '" method="post" target="_self">';
         $form .= '<b>请输入 矩形 的宽度和高度:</b><p>';
         $form .= '宽度:<input type="text" name="wide" value="' . (isset($_POST["wide"]) ? $_POST["wide"] : 0) . '"><br>';

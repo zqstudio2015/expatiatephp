@@ -14,10 +14,12 @@
 class formController {
 
     private $shapeName;
-
-    function __construct() {
+    private $shapeAction;
+                function __construct() {
         $this->shapeName = 'form'.ucwords(isset($_GET["action"])? $_GET["action"]:"rect");
-        echo new $this->shapeName();
+//        echo (new $this->shapeName())->createForm();
+        $this->shapeAction = new $this->shapeName();
+        echo $this->shapeAction->createForm();
     }
 
 }

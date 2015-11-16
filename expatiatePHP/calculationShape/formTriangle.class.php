@@ -17,7 +17,7 @@ class formTriangle extends formCreate {
         $this->shapeName = "triangle";
     }
 
-    function __toString() {
+    function createForm() {
         $form = '<form action="index.php?action=' . $this->shapeName . '" method="post" target="_self">';
         $form .= '<b>请输入 三角形 的三边:</b><p>';
         $form .= '第一边:<input type="text" name="side1" value="' . (isset($_POST["side1"]) ? $_POST["side1"] : 0) . '"><br>';

@@ -14,5 +14,5 @@
 abstract class formCreate {
     public $shapeName;
     
-    abstract function __toString();
+    abstract function createForm();
 }
