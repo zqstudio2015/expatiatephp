@@ -11,7 +11,7 @@
  *
  * @author BetterFeng
  */
-class circleForm {
+class formCircle {
 
     private $shapeName;
 
@@ -21,7 +21,7 @@ class circleForm {
 
     function __toString() {
         $form = '<form action="index.php?action=' . $this->shapeName . '" method="post" target="_self">';
-        $form .= '<b>请输入 三角形 的半径:</b><p>';
+        $form .= '<b>请输入 圆形 的半径:</b><p>';
         $form .= '半径:<input type="text" name="radius" value="' . (isset($_POST["radius"]) ? $_POST["radius"] : 0) . '"><br>';
         $form .= '<br><input type="submit" name="sub" value="计算" ><br>';
         $form .= '</form>';

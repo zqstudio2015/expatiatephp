@@ -11,7 +11,7 @@
  *
  * @author BetterFeng
  */
-class circleCalculation extends calculationShape {
+class calculationCircle extends calculationShape {
 
     private $radius = 0;
 

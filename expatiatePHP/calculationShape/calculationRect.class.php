@@ -11,7 +11,7 @@
  *
  * @author BetterFeng
  */
-class rectCalculation extends calculationShape {
+class calculationRect extends calculationShape {
 
     private $wide = 0;
     private $high = 0;

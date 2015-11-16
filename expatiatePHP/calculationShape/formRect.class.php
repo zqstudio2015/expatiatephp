@@ -11,7 +11,7 @@
  *
  * @author BetterFeng
  */
-class rectForm {
+class formRect {
 
     private $shapeName;
 

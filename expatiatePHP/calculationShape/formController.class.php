@@ -16,7 +16,7 @@ class formController {
     private $shapeName;
 
     function __construct() {
-        $this->shapeName = (isset($_GET["action"])? $_GET["action"]:"rect"). 'Form';
+        $this->shapeName = 'form'.ucwords(isset($_GET["action"])? $_GET["action"]:"rect");
         echo new $this->shapeName();
     }
 

@@ -11,7 +11,7 @@
  *
  * @author BetterFeng
  */
-class triangleForm {
+class formTriangle {
 
     private $shapeName;
 

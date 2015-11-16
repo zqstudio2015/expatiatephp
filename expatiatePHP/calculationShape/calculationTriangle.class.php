@@ -11,7 +11,7 @@
  *
  * @author BetterFeng
  */
-class triangleCalculation extends calculationShape {
+class calculationTriangle extends calculationShape {
 
     private $side1 = 0;
     private $side2 = 0;
