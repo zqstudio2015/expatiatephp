@@ -18,7 +18,7 @@ class calculationController {
     private $area = 0;
 
     function __construct() {
-        $this->shapeName = 'calculation'. ucwords(isset($_GET["action"])? $_GET["action"]:"rect");
+        $this->shapeName = 'calculation'. ucfirst(isset($_GET["action"])? $_GET["action"]:"rect");
         $this->shapeAction = new $this->shapeName();
         
     }
