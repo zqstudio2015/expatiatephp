@@ -19,11 +19,12 @@ class Dirc extends FileDir {
      * 参数filename：需要提供一个目录名称
      */
     function __construct($dirname = ".") {
+//        echo '<br>'.$dirname;
         if(!file_exists($dirname)){
             mkdir($dirname) or die("目录<b>".$dirname."</b>创建失败！");
         }
         $this->name = $dirname;
-        $this->type = "directory/";
+        $this->type = "/";
         $this->size = $this->toSize($this->dirSize($dirname));
         parent::__construct($dirname);
     }

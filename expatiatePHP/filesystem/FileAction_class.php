@@ -50,7 +50,7 @@ class FileAction {
         if (isset($_GET["dirname"])) {
             echo '<input type = "hidden" name = "dirname" value = "' . $_GET["dirname"] . '">';
         }
-        switch($this->action) {
+        switch ($this->action) {
             case "copy":
                 echo '<input type="hidden" name="action" value="copy">';
                 echo '将文件<b>' . $this->file->getName() . '</b>复制到';
@@ -131,14 +131,21 @@ class FileAction {
                 }
                 break;
             case "delete":
-                $this->file->delFile() or die("文件删除失败");
+//                $this->file->delFile() or die("文件删除失败");
+                if (is_dir($_POST["filename"])) {
+                    rmdir($_POST["filename"]) or die("文件删除失败");
+                }
+                if (is_file($_POST["filename"])) {
+                    unlink($_POST["filename"]) or die("文件删除失败");
+                }
+
                 break;
             case "edit":
                 $this->file->setText($_POST["content"]);
                 break;
             case "addfile":
                 $newfilename = $_POST["dirname"] . '/' . $_POST["filename"];
-                if(file_exists($newfilename)){
+                if (file_exists($newfilename)) {
                     echo '文件' . $newfilename . '已经存在！';
                 } else {
                     $newfile = new Filec($newfilename);
@@ -146,8 +153,8 @@ class FileAction {
                 }
                 break;
             case "adddir":
-                $newfilename = $_POST["dirname"] . '/' . $_POST["dirname"];
-                if(file_exists($newfilename)){
+                $newfilename = $_POST["dirname"] . '/' . $_POST["newdirname"];
+                if (file_exists($newfilename)) {
                     echo '目录' . $newfilename . '已经存在！';
                 } else {
                     $newdir = new Dirc($newfilename);
@@ -156,19 +163,20 @@ class FileAction {
             case "upload":
                 $tmp = new FileUpload(array('filePath' => $_POST["dirname"]));
                 $res = $tmp->uploadFile($_FILES["upfile"]);
-                if($res < 0){
+                if ($res < 0) {
                     echo $tmp->getErrorMsg() . '<br>';
                     exit;
                 }
                 break;
         }
     }
-    
+
     /* 通过调用该方法获取所操作的对象属性信息
      * 
      */
-    function getFileInfo(){
-        if(empty($this->file)){
+
+    function getFileInfo() {
+        if (empty($this->file)) {
             echo '<center><h1>创建新的文件或目录</h1></center>';
         } else {
             echo '<center><h1>文件或目录操作</h1></center>';

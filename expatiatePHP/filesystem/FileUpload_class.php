@@ -61,7 +61,7 @@ class FileUpload {
      */
     private function setOptions($options = array()){
         foreach ($options as $key => $val){
-            if(!in_array($key, array('filePathi', 'fileField', 'originName', 'allowType', 'maxSize', 'isUserDefName', 'userDefName', 'isRandName', 'randName'))){
+            if(!in_array($key, array('filePath', 'fileField', 'originName', 'allowType', 'maxSize', 'isUserDefName', 'userDefName', 'isRandName', 'randName'))){
                 continue;
             }
             $this->setOption($key, $val);
@@ -77,9 +77,9 @@ class FileUpload {
             return $this->errorNum;
         }
         $this->setOption('originName', $this->getFileNameFormFILES());
-        $this->setOption('tmpFileName', $this->getFileNameFormFILES());
-        $this->setOption('fileType', $this->getFileNameFormFILES());
-        $this->setOption('fileSize', $this->getFileNameFormFILES());
+        $this->setOption('tmpFileName', $this->getTmpFileNameFromFILES());
+        $this->setOption('fileType', $this->getFileTypeFromFILES());
+        $this->setOption('fileSize', $this->getFileSizeFromFILES());
     }
     
     /*未指定的成员属性赋值
@@ -127,7 +127,7 @@ class FileUpload {
      * 
      */
     private function checkFileSize(){        
-         if(in_array($this->fileSize, $this->maxSize)){
+         if($this->fileSize > $this->maxSize){
             $this->setOption('errorNum', -3);
         }
         return $this->errorNum;
@@ -173,7 +173,7 @@ class FileUpload {
      */
     private function copyFile(){
         $filePath = $this->filePath;
-        if($filePath[strlen($filePath)-l] != '/'){
+        if($filePath[strlen($filePath)-1] != '/'){
             $filePath .= '/';
         }
         

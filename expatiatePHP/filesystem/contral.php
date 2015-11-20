@@ -9,20 +9,24 @@
  * 邮箱:2360680821@qq.com
  */
 header("Content-Type:text/html;charset=utf-8");
-function __autoload($className){
+
+function __autoload($className) {
     include $className . "_class.php";
 }
 
 isset($_GET["action"]) or die("没有任何活动发生");
 
-$fileaction = new FileAction($_GET["dirname"], $_GET["action"]);
+if (isset($_GET["filename"])) {
+    $fileaction = new FileAction($_GET["filename"], $_GET["action"]);    
+} else {
+    $fileaction = new FileAction("", $_GET["action"]);
+}
 $fileaction->getFileInfo();
 
-if(isset($_GET["dirname"])){
+if (isset($_GET["dirname"])) {
     $fileaction->getForm("filesystem.php?dirname=" . $_GET["dirname"]);
 } else {
     $fileaction->getForm("filesystem.php");
 }
-
 ?>
 

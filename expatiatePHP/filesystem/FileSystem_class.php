@@ -26,11 +26,12 @@ class FileSystem {
     /* 构造方法，在创建文件系统对象时，初始化文件系统对象的成员属性
      * 参数 path：需要提供所操作目录的目录位置名称，默认为当前目录
      */
-    function __construct($path = "./updates") {
-        $this->serverpath = $_SERVER["DOCUMENT_ROOT"] . "/";
+    function __construct($path = ".") {
+        $this->serverpath = $_SERVER["DOCUMENT_ROOT"] . "/expatiatephp/filesystem";
         $this->path = $path;
         $this->prevpath = dirname($path);
-        $this->pagepath = dirname($_SERVER["SCRIPT_FILENAME"]);
+        $this->pagepath = dirname($_SERVER["SCRIPT_FILENAME"]-1);
+//        $this->pagepath = __FILE__;
         $dir_handle = opendir($path);
         while ($file = readdir($dir_handle)){
             if($file != "." && $file != ".."){
@@ -85,9 +86,9 @@ class FileSystem {
     
     //访问该方法获取文件系统的操作菜单
     public function getMenu(){
-        $menu = '<a href="contral.php?action=upload&dirname=' . $this->path . '">上传文件</a>||';
-        $menu .= '<a href="contral.php?action=adddir&dirname=' . $this->path . '">新建目录</a>||';
-        $menu .= '<a href="contral.php?action=addfile&dirname=' . $this->path . '">创建文件</a>||';
+        $menu = '<a href="contral.php?action=upload&dirname=' . $this->path ."/updates". '">上传文件</a>||';
+        $menu .= '<a href="contral.php?action=adddir&dirname=' . $this->path ."/updates". '">新建目录</a>||';
+        $menu .= '<a href="contral.php?action=addfile&dirname=' . $this->path ."/updates". '">创建文件</a>||';
         $menu .= '<a href="filesystem.php?dirname=' .$this->getPrevPath() . '">上级目录</a>||';
         $menu .= '<a href="filesystem.php?dirname=' .$this->getPagePath() . '">开始目录</a>||';
         $menu .= '<a href="filesystem.php?dirname=' .$this->getServerPath() . '">文档根目录</a>';
