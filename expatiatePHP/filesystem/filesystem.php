@@ -21,7 +21,7 @@
         }
 
         if (isset($_POST["action"])) {
-            $fileaction = new FileAction($_POST["filename"], $_POST["action"]);
+            $fileaction = new FileAction($_POST["dirname"], $_POST["action"]);
             $fileaction->option();
         }
 

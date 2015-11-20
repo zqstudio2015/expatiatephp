@@ -15,7 +15,7 @@ function __autoload($className){
 
 isset($_GET["action"]) or die("没有任何活动发生");
 
-$fileaction = new FileAction($_GET["filename"], $_GET["action"]);
+$fileaction = new FileAction($_GET["dirname"], $_GET["action"]);
 $fileaction->getFileInfo();
 
 if(isset($_GET["dirname"])){

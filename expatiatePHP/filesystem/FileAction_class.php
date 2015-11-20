@@ -146,7 +146,7 @@ class FileAction {
                 }
                 break;
             case "adddir":
-                $newfilename = $_POST["dirname"] . '/' . $_POST["filename"];
+                $newfilename = $_POST["dirname"] . '/' . $_POST["dirname"];
                 if(file_exists($newfilename)){
                     echo '目录' . $newfilename . '已经存在！';
                 } else {

@@ -52,32 +52,33 @@ abstract class FileDir {
     
     /* 调用时返回对象中的成员属性size的值，用来获取文件的占用的磁盘空间大小 */
     public function getSize(){
-        
+        return $this->size;
     }
     
     /* 调用时返回对象中的成员属性type的值，用来获取文件的类型 */
     public function getType(){
+        return $this->type;
         
     }
     
     /* 调用时返回对象中的成员属性able的值，用来获取文件的访问权限 */
     public function getAble(){
-        
+        return $this->able;
     }
     
     /* 调用时返回对象中的成员属性ctime的值，用来获取文件的创建时间 */
     public function getCtime(){
-        
+        return $this->ctime;
     }
     
     /* 调用时返回对象中的成员属性mtime的值，用来获取文件的修改时间 */
     public function getMtime(){
-        
+        return $this->mtime;
     }
     
     /* 调用时返回对象中的成员属性atime的值，用来获取文件的访问时间 */
     public function getAtime(){
-        
+        return $this->atime;
     }
     
     /* 声明一个删除文件的抽象方法，在子类中实现 */
@@ -104,16 +105,16 @@ abstract class FileDir {
      * 返回值：合适的单位
      */
     protected function toSize($bytes){
-        if($bytest >= pow(2, 40)){
+        if($bytes >= pow(2, 40)){
             $returnSize = round($bytes / pow(2, 40),2);
             $suffix = "TB";
-        } elseif($bytest >= pow(2, 30)){
+        } elseif($bytes >= pow(2, 30)){
             $returnSize = round($bytes / pow(2, 30),2);
             $suffix = "GB";
-        } elseif($bytest >= pow(2, 20)){
+        } elseif($bytes >= pow(2, 20)){
             $returnSize = round($bytes / pow(2, 20),2);
             $suffix = "MB";
-        } elseif($bytest >= pow(2, 10)){
+        } elseif($bytes >= pow(2, 10)){
             $returnSize = round($bytes / pow(2, 10),2);
             $suffix = "KB";
         } else{
@@ -151,7 +152,7 @@ abstract class FileDir {
     protected function fileAble(){
         $read = 0;
         $write = 0;
-        $exx = 0;
+        $exe = 0;
         if(is_readable($this->name)){
             $read = 4;
         }

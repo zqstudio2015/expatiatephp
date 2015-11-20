@@ -126,8 +126,8 @@ class FileUpload {
     /*检查上传文件大小是否超出范围
      * 
      */
-    private function checkFileSize(){
-         if(!in_array($this->fileSize, $this->maxSize)){
+    private function checkFileSize(){        
+         if(in_array($this->fileSize, $this->maxSize)){
             $this->setOption('errorNum', -3);
         }
         return $this->errorNum;
@@ -187,7 +187,7 @@ class FileUpload {
     /*从全局变量数组$_FILES中获取上传文件的错误标号
      * 
      */
-    private function getFileErrorFromFILES(){
+    private function getFileErrorFormFILES(){
         return $this->fileField['error'];
     }
     
@@ -204,7 +204,7 @@ class FileUpload {
     /*从全局变量数组$_FILES中获取上传文件的文件名
      * 
      */
-    private function getFileNameFromFILES(){
+    private function getFileNameFormFILES(){
         return $this->fileField['name'];
     }
     

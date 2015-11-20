@@ -26,7 +26,7 @@ class FileSystem {
     /* 构造方法，在创建文件系统对象时，初始化文件系统对象的成员属性
      * 参数 path：需要提供所操作目录的目录位置名称，默认为当前目录
      */
-    function __construct($path = ".") {
+    function __construct($path = "./updates") {
         $this->serverpath = $_SERVER["DOCUMENT_ROOT"] . "/";
         $this->path = $path;
         $this->prevpath = dirname($path);
@@ -124,7 +124,7 @@ class FileSystem {
      * 参数 cpage：提供一个控制脚本，当用户进行某项操作时转向的处理页面
      * 参数 file：提供一个文件或目录对象
      */
-    public function operate($cpage, $file){
+    public function operate($cpage, $file){        
         list($maintype, $subtype) = explode("/", $file->getType());
         $query = 'filename=' . $file->getName() . '&dirname=' . $this->path;
         $operstr = '<a href="' . $cpage . '?action=copy&' . $query.'">复制</a>';
