@@ -16,9 +16,9 @@
  */
 class FileUpload {
 
-    private $filePath;
-    private $fileField;
-    private $originName;
+    private $filePath;                 //保存上传文件的路径
+    private $fileField;                //保存从$_FILES[$fileField]中获取上传文件信息
+    private $originName;               //
     private $tmpFileName;
     private $fileType;
     private $fileSize;
@@ -163,7 +163,7 @@ class FileUpload {
      * 
      */
     private function makePath(){
-        if(!@mkdir($this->filePath, 0755)){
+        if(!mkdir($this->filePath, 0755)){
             $this->setOPtion('errorNum', -7);
         }
     }

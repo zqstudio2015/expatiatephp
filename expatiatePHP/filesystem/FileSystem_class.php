@@ -86,9 +86,9 @@ class FileSystem {
     
     //访问该方法获取文件系统的操作菜单
     public function getMenu(){
-        $menu = '<a href="contral.php?action=upload&dirname=' . $this->path ."/updates". '">上传文件</a>||';
-        $menu .= '<a href="contral.php?action=adddir&dirname=' . $this->path ."/updates". '">新建目录</a>||';
-        $menu .= '<a href="contral.php?action=addfile&dirname=' . $this->path ."/updates". '">创建文件</a>||';
+        $menu = '<a href="contral.php?action=upload&dirname=' . $this->path . '">上传文件</a>||';
+        $menu .= '<a href="contral.php?action=adddir&dirname=' . $this->path . '">新建目录</a>||';
+        $menu .= '<a href="contral.php?action=addfile&dirname=' . $this->path . '">创建文件</a>||';
         $menu .= '<a href="filesystem.php?dirname=' .$this->getPrevPath() . '">上级目录</a>||';
         $menu .= '<a href="filesystem.php?dirname=' .$this->getPagePath() . '">开始目录</a>||';
         $menu .= '<a href="filesystem.php?dirname=' .$this->getServerPath() . '">文档根目录</a>';

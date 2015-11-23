@@ -14,8 +14,9 @@ function __autoload($className){
 }
 isset($_GET["filename"]) or die("下载的文件名不存在");
 !empty($_GET["filename"]) or die("文件名为空");
-
+//echo $_GET["filename"];
 $file = new Filec($_GET["filename"]);
-$file->download();
+var_dump($file);
+//$file->download();
 ?>
 

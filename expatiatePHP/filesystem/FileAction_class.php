@@ -96,7 +96,7 @@ class FileAction {
                 break;
             case "upload":
                 echo '<input type="hidden" name="action" value="upload">';
-                echo '上传文件：<input type="file" name="upfile">';
+                echo '上传文件：<input type="file" name="upfile" >';
                 echo '<input type="submit" value="上传">';
                 echo '<a href= "' . $submitPage . '">取消</a>';
                 break;
@@ -161,7 +161,8 @@ class FileAction {
                 }
                 break;
             case "upload":
-                $tmp = new FileUpload(array('filePath' => $_POST["dirname"]));
+//                $tmp = new FileUpload(array('filePath' => $_POST["dirname"]));
+                $tmp = new FileUpload(array('filePath' => "/home/wwwroot/default/expatiatephp/filesystem/updates/"));
                 $res = $tmp->uploadFile($_FILES["upfile"]);
                 if ($res < 0) {
                     echo $tmp->getErrorMsg() . '<br>';
